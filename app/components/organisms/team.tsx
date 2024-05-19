@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import popImage from "@/public/assets/images/photo_placement_720.png";
 import { GrNext, GrPrevious } from "react-icons/gr";
-import { playfair } from "@/public/fonts";
+// import { playfair } from "@/public/fonts";
 
 function Team() {
     const teamProfile = [
@@ -23,7 +23,7 @@ function Team() {
         <>
             <div className="mobile:max-md:pl-15 pl-20 pr-20 pt-10 mobile:max-md:mr-[-6rem]  mobile:max-md:pr-5">
                 <h1
-                    className={`${playfair.className} mb-3 text-center text-6xl mobile:max-md:text-3xl `}
+                    className={` mb-3 text-center text-6xl mobile:max-md:text-3xl `}
                 >
                     Meet The Team
                 </h1>
