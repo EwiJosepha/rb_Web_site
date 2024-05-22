@@ -1,6 +1,6 @@
 import React from "react";
-import QuizPicture from "./quix-pic";
-import { playfair } from "@/public/fonts";
+// import QuizPicture from "./quix-pic";
+// import { playfair } from "@/public/fonts";
 
 function Faqs() {
     // const requiremts = [
@@ -37,7 +37,7 @@ function Faqs() {
             <div>
                 <div className=" mobile:max-md:ml-[1rem]mobile:max-md:pl-5   h-full bg-white pl-20 pr-20 pt-20  mobile:max-md:mr-[-9rem] mobile:max-md:px-5 mobile:max-md:pr-5 mobile:max-md:pt-10">
                     <h1
-                        className={` ${playfair.className} pb-10  pt-8 text-center text-6xl mobile:max-md:text-3xl`}
+                        className={`  pb-10  pt-8 text-center text-6xl mobile:max-md:text-3xl`}
                     >
                         FAQs
                     </h1>
@@ -125,7 +125,7 @@ function Faqs() {
                     </div>
                 </div>
             </div>
-            <QuizPicture />
+            {/* <QuizPicture /> */}
             <div className="grid grid-cols-2 justify-center gap-10 pl-20 pr-20 align-middle  mobile:max-md:mr-[-9rem] mobile:max-md:grid-cols-1 mobile:max-md:gap-4 mobile:max-md:pl-5 mobile:max-md:pr-5 mobile:max-md:pt-10">
                 <div
                     className="  rounded-lx p-2 py-3 pr-5"
