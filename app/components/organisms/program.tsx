@@ -23,6 +23,11 @@ function OurPrograms() {
             name: "WordPress Bootcamp",
             text: "Explain what you did in this role. This space gives you more room to expound on your message. Remember that writing effectively is an art. Start by using simple, everyday words people can easily understand.Explain what you did in this role. This space gives you more room to expound on your message. Remember that writing effectively is an art. Start by using simple, everyday words people can easily understand.",
         },
+        {
+            image: program3,
+            name: "WordPress Bootcamp",
+            text: "Explain what you did in this role. This space gives you more room to expound on your message. Remember that writing effectively is an art. Start by using simple, everyday words people can easily understand.Explain what you did in this role. This space gives you more room to expound on your message. Remember that writing effectively is an art. Start by using simple, everyday words people can easily understand.",
+        },
     ];
     return (
         <div className="h-full-screen mt-5 bg-white pl-20 pr-20 mobile:max-md:mr-[-9rem] mobile:max-md:pl-5 mobile:max-md:pr-5">
