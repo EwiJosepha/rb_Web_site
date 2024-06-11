@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                     <HiOutlinePhone className="text-4xl" />
                     <h2 className="text-xl font-medium">Phone</h2>
                     <p className="text-sm">
-                        Give us a call and let&apos;s have a conversation.
+                        Give us a call and let's have a conversation.
                     </p>
                     <Link href="/" className="text-sm underline">
                         +237 670 063 739
