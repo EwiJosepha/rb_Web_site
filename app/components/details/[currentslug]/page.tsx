@@ -1,16 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import { FaShare, FaThumbsUp } from "react-icons/fa";
-import { playfair } from "@/public/fonts";
+// import { playfair } from "@/public/fonts";
 import {
   client,
   imageConvertion,
-} from "@/rebaseblogapply/schemaTypes/sanityy-client";
+} from "@/webcms/schemaTypes/sanityy-client";
 import {
   oneBlogCardsanity,
   simpleblogcardsanity,
-} from "@/rebaseblogapply/utils/interfaces";
-import { getAllData } from "@/rebaseblogapply/utils/getblogs";
+} from "@/webcms/utils/interfaces";
+import { getAllData } from "@/webcms/utils/getblogs";
 import Link from "next/link";
 
 interface Params {
@@ -56,7 +56,7 @@ async function BlogDetails(params: Params) {
       <div className=" pb-8">
         <div className=" w-full px-20 pb-32 pt-20  mobile:max-md:mr-[-9rem] mobile:max-md:grid-cols-1 mobile:max-md:pl-5 mobile:max-md:pr-5">
           <h1
-            className={` ${playfair.className} pb-6  text-6xl mobile:max-md:text-3xl`}
+            className={` pb-6  text-6xl mobile:max-md:text-3xl`}
           >
             The Beginning
           </h1>

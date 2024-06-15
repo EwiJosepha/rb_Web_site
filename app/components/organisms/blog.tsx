@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import mainPicture from "@/public/assets/images/blog_rebase_photo_720.png";
-import { playfair } from "@/public/fonts";
 import SearchCourse from "./search";
 import Link from "next/link";
 // import { imageConvertion } from "@/rebaseblogapply/schemaTypes/sanityy-client";
@@ -15,7 +14,7 @@ async function Blog() {
         <div>
             <div className=" space-y-3 py-10 mobile:max-md:pl-20 ">
                 <h1
-                    className={` ${playfair.className}  text-center  text-6xl  mobile:max-md:text-3xl sm:max-md:text-4xl`}
+                    className={` }  text-center  text-6xl  mobile:max-md:text-3xl sm:max-md:text-4xl`}
                 >
                     Blog
                 </h1>

@@ -5,9 +5,9 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'web_cms',
+  title: 'application_blog_sanity',
 
-  projectId: 'tcngjxmh',
+  projectId: 'hgq3pig2',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],

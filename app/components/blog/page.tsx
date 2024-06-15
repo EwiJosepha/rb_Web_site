@@ -1,6 +1,6 @@
 import React from "react";
-import Blog from "../Components/organisms/blog";
-import Footer from "../Components/organisms/footer";
+import Blog from "../organisms/blog";
+import Footer from "../organisms/footer";
 
 function BlogPage() {
     return (

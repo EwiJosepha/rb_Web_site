@@ -10,7 +10,7 @@ export interface simpleblogcardsanity {
 
 export interface simplecardsanity {
   title: string;
-  slug: string
+  slug: string;
   description: string;
   content: string;
   titleImage: string;
@@ -35,21 +35,20 @@ export interface oneBlogCardsanity {
 }
 
 export interface ApplySchemaTypes {
-  _type:string,
-  fullName:string,
-  number:string,
-  gender:string,
-  schoolQualification:string,
-  programOfInterest:string,
-  email:string,
-  age:number,
-  residence:string,
-  other:string,
-  intentionsBefore:string,
-  intentionsAfter:string,
-  guardianNumber:string,
-  otherForguardian:string,
-  guardianEmail:string,
-  guardianName:string,
-
+  _type: string;
+  fullName: string;
+  number: string;
+  gender: string;
+  schoolQualification: string;
+  programOfInterest: string;
+  email: string;
+  age: number;
+  residence: string;
+  other: string;
+  intentionsBefore: string;
+  intentionsAfter: string;
+  guardianNumber: string;
+  otherForguardian: string;
+  guardianEmail: string;
+  guardianName: string;
 }
