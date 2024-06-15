@@ -42,7 +42,7 @@ const FeaturedStudent: React.FC = () => {
             <div className="flex items-center justify-center gap-10">
                 {potentialStudents.slice(0, 3).map((student, key) => (
                     <div
-                        className=" w-[50%] bg-orange-50 p-4 text-center mobile:max-md:w-[80%] md:h-[480px] xl:h-[480px]  specificScreen:h-[580px]"
+                        className=" w-[50%] bg-orange-50 p-4 text-center mobile:max-md:w-[80%] md:h-[480px] xl:h-[480px]  lg:h-[550px]"
                         key={key}
                     >
                         <div className="mobile:max-md:h-[10%] mobile:max-md:w-[80%] mobile:max-md:pl-8">

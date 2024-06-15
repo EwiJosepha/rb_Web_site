@@ -1,6 +1,6 @@
 import React from "react";
-import ApplyNow from "../organisms/apply";
-import Footer from "../organisms/footer";
+import ApplyNow from "../components/organisms/apply";
+import Footer from "../components/organisms/footer";
 
 
 function AboutPage() {

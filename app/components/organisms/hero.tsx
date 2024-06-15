@@ -6,7 +6,7 @@ import hero from "@/public/assets/images/Lumii_20231207_111535768.jpg";
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="relative mb-20 flex h-screen flex-col w-full items-center mobile:max-md:h-full mobile:max-md:w-[100%]">
+    <div className="relative mb-20 flex h-screen flex-col items-center mobile:max-md:h-full mobile:max-md:w-[100%]">
       <div className=" relative h-4/5  mobile:max-md:mr-[-14rem] mobile:max-md:pt-20 xl:h-4/5">
         <div className="absolute inset-0 bg-black opacity-35 "></div>
         <Image src={hero} alt="sectionimage" className="h-full object-cover " />

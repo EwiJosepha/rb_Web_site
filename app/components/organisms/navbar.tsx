@@ -16,7 +16,7 @@ export default function Navbar() {
             <div className="mx-auto max-w-7xl py-4 md:flex md:items-center md:justify-between">
                 <>
                     <div className="flex max-w-full items-center justify-between py-3 md:block md:py-5 lg:block">
-                        <Link href="/" className="h-8 w-40 ">
+                        <Link href="/programs" className="h-8 w-40 ">
                             <div className="xl:w-50 h-8 w-40 xl:h-16">
                                 <Image
                                     src={rebaseLogo}
@@ -41,13 +41,13 @@ export default function Navbar() {
                 >
                     <div className="mobile:max-md: flex-none space-x-10 space-y-6 text-center text-base md:flex md:space-y-0 lg:flex-row lg:space-y-0 xl:text-lg">
                         <Link
-                            href="/about-us"
+                            href="/about"
                             className="text-white-200 mr-4 block mobile:max-md:ml-10 lg:mt-0 lg:inline-block"
                         >
                             About Us
                         </Link>
                         <Link
-                            href="/programs"
+                            href="/program"
                             className="text-white-200 mr-4 mt-4 block lg:mt-0 lg:inline-block"
                         >
                             Programs
@@ -59,14 +59,14 @@ export default function Navbar() {
                             Blog
                         </Link>
                         <Link
-                            href="/contact-us"
+                            href="/contact"
                             className="text-white-200 mr-4 mt-4 block lg:mt-0 lg:inline-block"
                         >
                             Contact Us
                         </Link>
                     </div>
                     <div className=" ml-5 mobile:max-md:ml-10 mobile:max-md:p-4 mobile:max-md:text-center">
-                        <Link href="/dashboard">
+                        <Link href="/apply">
                             <Button
                                 className="border-4 border-purple bg-transparent text-sm text-purple"
                                 type="button"
