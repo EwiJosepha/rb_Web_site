@@ -5,12 +5,12 @@ import { FaShare, FaThumbsUp } from "react-icons/fa";
 import {
   client,
   imageConvertion,
-} from "@/webcms/schemaTypes/sanityy-client";
+} from "../../../lib/sanity-clientt";
 import {
   oneBlogCardsanity,
   simpleblogcardsanity,
-} from "@/webcms/utils/interfaces";
-import { getAllData } from "@/webcms/utils/getblogs";
+} from "../../../lib/interfaces";
+import { getAllData } from "../../../lib/getblogs";
 import Link from "next/link";
 
 interface Params {
