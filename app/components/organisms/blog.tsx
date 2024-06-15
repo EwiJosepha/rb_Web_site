@@ -3,13 +3,13 @@ import Image from "next/image";
 import mainPicture from "@/public/assets/images/blog_rebase_photo_720.png";
 import SearchCourse from "./search";
 import Link from "next/link";
-// import { imageConvertion } from "@/rebaseblogapply/schemaTypes/sanityy-client";
-// import { simpleblogcardsanity } from "@/rebaseblogapply/utils/interfaces";
-// import { getAllData } from "@/rebaseblogapply/utils/getblogs";
+import { imageConvertion } from "../../lib/sanity-clientt";
+import { simpleblogcardsanity } from "../../lib/interfaces";
+import { getAllData } from "../../lib/getblogs";
 
 
 async function Blog() {
-    // const retrievedData = await getAllData();
+    const retrievedData = await getAllData();
     return (
         <div>
             <div className=" space-y-3 py-10 mobile:max-md:pl-20 ">
@@ -44,7 +44,7 @@ async function Blog() {
                     </div>
                 </div>
                 <div className="  flex flex-col gap-6 object-cover mobile:max-md:h-full lg:h-[350px]">
-                    {/* {retrievedData?.slice(0, 2).map(
+                    {retrievedData?.slice(0, 2).map(
                         (post: simpleblogcardsanity, index: number) => (
                             <div
                                 key={index}
@@ -119,7 +119,7 @@ async function Blog() {
                                 </Link>
                             </div>
                         ),
-                    )} */}
+                    )}
                 </div>
             </div>
             <SearchCourse />
