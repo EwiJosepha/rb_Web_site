@@ -35,7 +35,7 @@ const Testimonials: React.FC = () => {
   ];
 
   return (
-    <div className="mb-14 mobile:max-md:mx-5 mobile:max-md:mr-[-9rem] lg:mx-36">
+    <div className="mb-14 mobile:max-md:mx-5 mobile:max-md:mr-[-9rem] lg:mx-20">
       <h1
         className={`${playfair.className} mb-6 text-center text-6xl mobile:max-md:text-3xl`}
       >
@@ -53,7 +53,7 @@ const Testimonials: React.FC = () => {
         <div className="grid w-[75%] grid-cols-2 gap-10 overflow-hidden lg:h-[600px]">
           {testifier.slice(0, 2).map((testimony, index) => (
             <div
-              className="card bg-gray-200 p-10 lg:h-[550px] xl:h-[500px]"
+              className="card bg-gray-200 p-10 lg:h-[580px] xl:h-[500px]"
               key={index}
               style={{}}
             >

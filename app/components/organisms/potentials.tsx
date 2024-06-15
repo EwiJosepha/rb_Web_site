@@ -1,42 +1,47 @@
 import Image from "next/image";
 import React from "react";
-import hero from "@/public/assets/images/PXL_20231031_121918648.PORTRAIT.jpg";
-import { playfair } from "@/public/fonts";
+import keyboard from "@/public/assets/images/blog_rebase_photo__1__720.png";
+import Button from "../molecules/button";
+import Link from "next/link";
 
-const OriginSec: React.FC = () => {
-    //     id: 3,
-    //     image: bata,
-    //     title: "How to manage SEO as a client",
-    //     date: "June 24th, 2024",
-    //     student: "Humphrey Bata",
-    //     text: "Rebase Academy has truly transformed my career. The hands-on learning experience and industry-relevant curriculum prepared me for success in the tech job markett",
-    // },
+const Potentialsection: React.FC = () => {
+  return (
+    <div className="relative mobile:max-md:mx-5 mobile:max-md:mr-[-12rem]">
+      <Image
+        src={keyboard}
+        alt="sectionimage"
+        className="h-96 w-full object-cover"
+      />
 
-    return (
-        <div className="mb-20 flex items-center justify-around mobile:max-md:mx-5 mobile:max-md:mr-[-12rem] mobile:max-md:flex-col lg:mx-20">
-            <div className=" h-[400px] w-[48%] mobile:max-md:mt-10 mobile:max-md:w-[100%] ">
-                <Image
-                    src={hero}
-                    alt="sectionimage"
-                    className="h-full w-full object-cover"
-                />
-            </div>
-            <div className="ml-10 w-[48%] mobile:max-md:ml-1 mobile:max-md:w-[100%]">
-                <h1
-                    className={`${playfair.className} mb-4 text-4xl mobile:max-md:pt-4 mobile:max-md:text-3xl`}
-                >
-                    Origin and Mission
-                </h1>
-                <p className="w-[90%] font-sans text-lg mobile:max-md:w-[100%] xl:text-2xl ">
-                    Rebase Code Camp was founded in response to the growing
-                    demand for digital skills and the need to bridge the gap
-                    between traditional education and industry requirements.
-                    With a team of experienced instructors and industry
-                    professionals, we are dedicated to empowering individuals to
-                    thrive in the digital economy.
-                </p>
-            </div>
+      <div className="absolute inset-0 bg-purple opacity-60 "></div>
+
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white mobile:max-md:pl-4">
+        <h2 className="mb-6 text-4xl font-bold">
+          Unlock Your Potential with Rebase Code Camp
+        </h2>
+        <h3 className="mb-14">
+          Join our innovative programs and gain the skills to thrive in the
+          digital age.
+        </h3>
+
+        <div className="space-x-8">
+          <Link href="/dashboard" className="bg-orange-500 py-3.5">
+            <Button className="font-bold" type="button">
+              Apply Now
+            </Button>
+          </Link>
+          <Link href="/about-us">
+            <button
+              className="cursor-pointer border-2 border-white bg-transparent px-7 py-3 font-bold"
+              // type="button"
+            >
+              Learn More
+            </button>
+          </Link>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
-export default OriginSec;
+
+export default Potentialsection;
