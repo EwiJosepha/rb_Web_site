@@ -3,10 +3,10 @@ import imageUrlBuilder from "@sanity/image-url";
 
 
 export const client = createClient({
-  projectId:process.env.PROJECT_ID,
-  dataset:process.env.DATASET,
-  apiVersion:process.env.VERSION,
-  token:process.env.TOKEN,
+  projectId:"hgq3pig2",
+  dataset:"production",
+  apiVersion:"2022-03-07",
+  token:"skETqb88g6IVurLzDLb5NMeSl7awoFhlKfRnOYQ1JQ3m0LzgDVhB0grKJKgFu1IX33aCrllwYN8yGTqD2m4udPfjZln7gsgdHr04NDk3b9aRUy9cHRYiNYXghkUqBF12jGwl2irJ8EwUODfJClWgqqbcefUhM2F33RI7xnnzO3PJi9qyRpyw",
   useCdn: false,
 });
 
