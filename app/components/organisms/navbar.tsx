@@ -16,7 +16,7 @@ export default function Navbar() {
             <div className="mx-auto max-w-7xl py-4 md:flex md:items-center md:justify-between">
                 <>
                     <div className="flex max-w-full items-center justify-between py-3 md:block md:py-5 lg:block">
-                        <Link href="/programs" className="h-8 w-40 ">
+                        <Link href="/" className="h-8 w-40 ">
                             <div className="xl:w-50 h-8 w-40 xl:h-16">
                                 <Image
                                     src={rebaseLogo}
@@ -47,7 +47,7 @@ export default function Navbar() {
                             About Us
                         </Link>
                         <Link
-                            href="/program"
+                            href="/programs"
                             className="text-white-200 mr-4 mt-4 block lg:mt-0 lg:inline-block"
                         >
                             Programs

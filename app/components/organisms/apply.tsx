@@ -7,8 +7,9 @@ import Link from "next/link";
 // import Button from "./Button";
 
 const ApplyNow: React.FC = () => {
+    
     return (
-        <div className="relative h-screen mx-20">
+        <div className="relative h-screen mx-20 bg-white">
             <div className="h-4/6  w-full">
                 <Image
                     src={apply}
@@ -17,15 +18,15 @@ const ApplyNow: React.FC = () => {
                 />
             </div>
 
-            <div className="absolute inset-0 top-14 px-6 text-white lg:mx-20">
+            <div className="absolute inset-0 top-64 px-6 text-white lg:mx-20">
                 <h1 className={` w-3/5 font-mono text-6xl mobile:max-md:text-3xl`}>Apply Now</h1>
                 <h2 className="mt-10 w-1/2 text-2xl font-sans mobile:max-md:w-[100%]">
                     Join us for an opportunity 
                 </h2>
             </div>
 
-            <div>
-                <form className=" mobile:max-md: mx-auto my-20 flex flex-col space-y-3 mobile:max-md:mx-5 mobile:max-md:my-5 mobile:max-md:space-y-0">
+            <div className=" bg-white">
+                <form className=" mobile:max-md: mx-auto my-20 flex flex-col space-y-3 mobile:max-md:mx-5 mobile:max-md:my-5 mobile:max-md:space-y-0 bg-white">
 
                     <label className="text-xl font-semibold mobile:max-md">
                         Full Name <span className="text-orange-500">*</span>
@@ -36,7 +37,7 @@ const ApplyNow: React.FC = () => {
                         name="fullName"
                     />
                     
-                    <div className="flex justify-between py-8 mobile:max-md:flex-col">
+                    <div className="flex justify-between py-8 mobile:max-md:flex-col bg-white">
                         
                         <div className="flex w-[45%] flex-col space-y-5 mobile:max-md:w-[100%]">
                          
@@ -136,7 +137,7 @@ const ApplyNow: React.FC = () => {
                                 Age <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                className=" bg-gray-200 py-4 pl-5"
                                 type="number"
                                 name="age"
                             />
@@ -155,7 +156,7 @@ const ApplyNow: React.FC = () => {
                                 If Other, specify
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                className=" bg-gray-200 py-4 pl-5"
                                 type="text"
                                 name="other"
                             />
@@ -168,7 +169,7 @@ const ApplyNow: React.FC = () => {
                     </label>
                     <textarea
                         name="intentionsBefore"
-                        className=" bg-gray-200 py-10"
+                        className=" bg-gray-200 py-10 pl-5"
                     />
 
                     <label className="pt-4 text-xl font-semibold">
@@ -177,7 +178,7 @@ const ApplyNow: React.FC = () => {
                     </label>
                     <textarea
                         name="intentionsAfter"
-                        className=" bg-gray-200 py-10"
+                        className=" bg-gray-200 py-10 pl-5"
                     />
 
                     <label className="pt-4 text-xl font-semibold">
@@ -185,13 +186,13 @@ const ApplyNow: React.FC = () => {
                         <span className="text-orange-500">*</span>
                     </label>
                     <input
-                        className=" bg-gray-200 py-4"
+                        className=" bg-gray-200 py-4 pl-5"
                         type="text"
                         name="guardianName"
                     />
 
                     {/* all div  */}
-                    <div className="flex justify-between py-8">
+                    <div className="flex justify-between py-8 bg-white">
                         {/* div 3  */}
                         <div className="flex w-[45%] flex-col space-y-5">
                             <p className="text-xl font-semibold">
@@ -201,7 +202,7 @@ const ApplyNow: React.FC = () => {
                             <div className="mt-6 flex flex-col space-y-3 bg-gray-200 p-4 text-lg">
                                 <label className=" font-sans">
                                     <input
-                                        className=" bg-gray-200 py-4"
+                                        className=" bg-gray-200 py-4 pl-5"
                                         type="radio"
                                         name="gender"
                                     />{" "}
@@ -217,7 +218,7 @@ const ApplyNow: React.FC = () => {
                                 </label>
                                 <label className=" font-sans">
                                     <input
-                                        className=" bg-gray-200 py-4"
+                                        className=" bg-gray-200 py-4 pl-5"
                                         type="radio"
                                         name="gender"
                                     />{" "}
@@ -230,7 +231,7 @@ const ApplyNow: React.FC = () => {
                                 <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                className=" bg-gray-200 py-4 pl-5"
                                 type="tel"
                                 name="guardianNumber"
                             />
@@ -242,7 +243,7 @@ const ApplyNow: React.FC = () => {
                                 <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                className=" bg-gray-200 py-4 pl-4"
                                 type="text"
                                 name="other"
                             />
@@ -252,16 +253,16 @@ const ApplyNow: React.FC = () => {
                                 <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                className=" bg-gray-200 py-4 pl-5"
                                 type="email"
                                 name="guardianEmail"
                             />
                         </div>
                     </div>
-
+                    <div className=" pb-10 items-center justify-center  text-center">
                     <Link
                         href="/"
-                        className="items-center justify-center  text-center"
+                        className=""
                     >
                         <Button
                             className="bg-purple font-mono text-white"
@@ -270,6 +271,7 @@ const ApplyNow: React.FC = () => {
                             Submit
                         </Button>
                     </Link>
+                    </div>
                 </form>
             </div>
         </div>

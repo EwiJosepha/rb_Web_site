@@ -7,7 +7,7 @@ import Potentialsection from "../components/organisms/potentials"
 import Testimonials from "../components/organisms/testimonial"
 function Landing() {
   return (
-    <div>
+    <div className=" bg-white">
       <Navbar />
       <HeroSection />
       <OriginSec />
