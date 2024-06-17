@@ -6,8 +6,6 @@ export async function getMessage(
   message: FormDataEntryValue | null,
 ) {
   try {
-    // Create a new document in Sanity
-
     await client.create({
       _type: "contact",
       name,
@@ -15,6 +13,8 @@ export async function getMessage(
       message,
     });
   } catch (error) {
+    console.log("failled");
+    
     throw new Error("Error creating document in Sanity:");
   }
 }

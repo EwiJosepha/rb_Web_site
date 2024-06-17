@@ -10,9 +10,6 @@ export const client = createClient({
   useCdn: false,
 });
 
-console.log("stra",process.env.PROJECT_ID);
-
-
 const builder = imageUrlBuilder(client);
 
 export function imageConvertion(source: string) {

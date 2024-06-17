@@ -7,7 +7,7 @@ function Notification() {
  return (
     <ToastContainer
     position="top-right"
-    autoClose={1500} // Close the toast after 3 seconds
+    autoClose={1500}
     hideProgressBar={false}
     newestOnTop={false}
     closeOnClick

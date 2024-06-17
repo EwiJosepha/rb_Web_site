@@ -11,14 +11,25 @@ import Link from "next/link";
 
 async function handleSubmit(formData: FormData) {
   const notify = () => toast.success("Message send successfully");
+  const failed = () => toast.warning("Failed to send Message please try Again");
+
   const name: FormDataEntryValue | null = formData.get("name");
   const email: FormDataEntryValue | null = formData.get("email");
   const text: FormDataEntryValue | null = formData.get("text");
-  getMessage(name, email, text);
+  console.log("values",{name, email, text});
+  
+  if(!name && !email && !text){
+    failed()
+  }
+   await getMessage(name, email, text);
   notify();
+  console.log("heyggtyyuuujd");
+  
 }
 
 function ContactUs() {
+    console.log("hey");
+    
   return (
     <div className="flex w-full justify-center p-2">
       <div className="grid grid-cols-1 place-content-center  gap-y-10 md:grid-cols-2  md:gap-10 lg:max-w-7xl">
@@ -78,7 +89,7 @@ function ContactUs() {
                 name="text"
                 required
               ></textarea>
-              <Link href="/">
+              {/* <Link href=""> */}
                 <button
                   className=" p-2 px-4 text-white"
                   style={{ background: "#6220ec" }}
@@ -86,7 +97,7 @@ function ContactUs() {
                 >
                   Submit
                 </button>
-              </Link>
+              {/* </Link> */}
             </form>
           </div>
           <Notification />
