@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import beri from "@/public/assets/images/Lumii_20231201_144647543 (1).jpg";
+import beri from "../../../public/assets/images/Lumii_20231201_144647543 (1).jpg";
 // import { playfair } from "@/public/fonts";
+
 
 const AboutUs: React.FC = () => {
     return (

@@ -12,9 +12,7 @@ export async function getMessage(
       email,
       message,
     });
-  } catch (error) {
-    console.log("failled");
-    
+  } catch (error) {    
     throw new Error("Error creating document in Sanity:");
   }
 }

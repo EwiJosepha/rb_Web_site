@@ -1,8 +1,7 @@
 'use client'
 import Image from "next/image";
-import apply from "@/public/assets/images/applynow-1653368202-170667a.webp";
+import apply from "../../../public/assets/images/applynow-1653368202-170667a.webp";
 import React from "react";
-import Button from "../molecules/button";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { ApplySchemaTypes } from "@/app/lib/interfaces";
@@ -36,7 +35,6 @@ const ApplyNow: React.FC = () => {
             reset();
         } catch (error) {
             faile()
-            return [];
         }
         notify();
     };

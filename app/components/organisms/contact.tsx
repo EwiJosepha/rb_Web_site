@@ -7,12 +7,11 @@ import { playfair } from "@/public/fonts";
 import { getMessage } from "@/app/servers/getcontact-message";
 import Notification from "../../lib/toast";;
 import { toast } from "react-toastify";
-import Link from "next/link";
 
 async function handleSubmit(formData: FormData) {
   const notify = () => toast.success("Message send successfully");
   const failed = () => toast.warning("Failed to send Message please try Again");
-
+//   d&j-collectio.vercel.app
   const name: FormDataEntryValue | null = formData.get("name");
   const email: FormDataEntryValue | null = formData.get("email");
   const text: FormDataEntryValue | null = formData.get("text");
@@ -22,9 +21,7 @@ async function handleSubmit(formData: FormData) {
     failed()
   }
    await getMessage(name, email, text);
-  notify();
-  console.log("heyggtyyuuujd");
-  
+  notify();  
 }
 
 function ContactUs() {
