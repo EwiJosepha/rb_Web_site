@@ -3,7 +3,6 @@ import React from "react";
 import beri from "../../../public/assets/images/Lumii_20231201_144647543 (1).jpg";
 // import { playfair } from "@/public/fonts";
 
-
 const AboutUs: React.FC = () => {
     return (
         <div className="items-center justify-around mobile:max-md:mx-5 lg:mx-20">
