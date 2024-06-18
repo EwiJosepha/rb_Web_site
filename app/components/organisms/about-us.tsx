@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import beri from "@/public/assets/images/Lumii_20231201_144647543 (1).jpg";
+import beri from "../../../public/assets/images/Lumii_20231201_144647543 (1).jpg";
 // import { playfair } from "@/public/fonts";
 
 const AboutUs: React.FC = () => {
@@ -147,9 +147,18 @@ const AboutUs: React.FC = () => {
                 </div>
             </div>
 
-            <video controls className="mx-auto my-36 w-[80%]">
-                <source src="/video.mp4" type="video/mp4" />
-            </video>
+            <div className="mx-auto my-36 w-[90%]">
+                <iframe
+                    width="100%"
+                    height="600px"
+                    src="https://www.youtube.com/embed/-YACL3txS8E?si=Vp3myooKgmeY-oPM"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                ></iframe>
+            </div>
         </div>
     );
 };

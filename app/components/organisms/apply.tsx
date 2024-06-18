@@ -1,14 +1,49 @@
+'use client'
 import Image from "next/image";
-import apply from "@/public/assets/images/applynow-1653368202-170667a.webp";
+import apply from "../../../public/assets/images/applynow-1653368202-170667a.webp";
 import React from "react";
-import Button from "../molecules/button";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { ApplySchemaTypes } from "@/app/lib/interfaces";
+import { toast } from "react-toastify"
 // import { playfair } from "@/public/fonts";
 // import Button from "./Button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { appllicationInfoSchema } from "@/app/validations/apply-info";
+import { createRegistration } from "@/app/servers/applyformData";
+import Notification from "@/app/lib/toast";
 
 const ApplyNow: React.FC = () => {
+
+    const notify = () => toast.success("Application submitted successfully");
+    const faile =()=> toast.warning("Application unsuccessfull please try again!")
+    const form = useForm<ApplySchemaTypes>({
+        resolver: zodResolver(appllicationInfoSchema),
+        defaultValues: {
+            _type: "apply",
+        },
+    });
+
+    const {
+        register,
+        formState: { errors },
+        reset,
+    } = form;
+    const onSubmit = async (data: ApplySchemaTypes) => {
+        try {
+            await createRegistration(data);
+            reset();
+        } catch (error) {
+            faile()
+        }
+        notify();
+    };
+
+
+
+
     return (
-        <div className="relative h-screen mx-20">
+        <div className="relative h-screen mx-20 bg-white">
             <div className="h-4/6  w-full">
                 <Image
                     src={apply}
@@ -17,148 +52,194 @@ const ApplyNow: React.FC = () => {
                 />
             </div>
 
-            <div className="absolute inset-0 top-14 px-6 text-white lg:mx-20">
+            <div className="absolute inset-0 top-64 px-6 text-white lg:mx-20">
                 <h1 className={` w-3/5 font-mono text-6xl mobile:max-md:text-3xl`}>Apply Now</h1>
                 <h2 className="mt-10 w-1/2 text-2xl font-sans mobile:max-md:w-[100%]">
-                    Join us for an opportunity 
+                    Join us for an opportunity
                 </h2>
             </div>
 
-            <div>
-                <form className=" mobile:max-md: mx-auto my-20 flex flex-col space-y-3 mobile:max-md:mx-5 mobile:max-md:my-5 mobile:max-md:space-y-0">
-
-                    <label className="text-xl font-semibold mobile:max-md">
+            <div className=" bg-white">
+                <form
+                    {...form}
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className=" mobile:max-md: mx-auto my-20 flex flex-col space-y-3 mobile:max-md:mx-5 mobile:max-md:my-5 mobile:max-md:space-y-0"
+                >
+                    <label className="text-xl font-semibold">
                         Full Name <span className="text-orange-500">*</span>
                     </label>
                     <input
-                        className=" bg-gray-200 py-4"
+                        {...register("fullName")}
+                        className=" bg-gray-200 py-4 pl-4"
                         type="text"
-                        name="fullName"
                     />
-                    
+
+                    {errors.fullName && (
+                        <p className="text-sm text-red-600">{errors.fullName.message}</p>
+                    )}
+
                     <div className="flex justify-between py-8 mobile:max-md:flex-col">
-                        
                         <div className="flex w-[45%] flex-col space-y-5 mobile:max-md:w-[100%]">
-                         
                             <label className="text-xl font-semibold">
-                                Phone Number{" "}
-                                <span className="text-orange-500">*</span>
+                                Phone Number <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" mb-6 bg-gray-200  py-4"
-                                type="tel"
-                                name="number"
+                                {...register("number")}
+                                className=" mb-6 bg-gray-200  py-4 pl-4"
                             />
-                         
+                            {errors.number && (
+                                <p className="text-sm text-red-600">{errors.number.message}</p>
+                            )}
 
                             <p className="font-sans text-xl font-semibold">
-                                Gender{" "}
-                                <span className="text-orange-500">*</span>
+                                Gender <span className="text-orange-500">*</span>
                             </p>
                             <div className="mt-6 flex flex-col space-y-3 bg-gray-200 p-4 text-lg ">
                                 <label className=" font-sans">
                                     <input
-                                        className=" bg-gray-200 py-4"
+                                        {...register("gender")}
+                                        className=" bg-gray-200 px-1 py-4"
                                         type="radio"
-                                        name="gender"
                                     />{" "}
                                     Male
                                 </label>
+                                {errors.gender && (
+                                    <p className="text-sm text-red-600">
+                                        {errors.gender.message}
+                                    </p>
+                                )}
+
                                 <label className=" font-sans">
                                     <input
-                                        className=" bg-gray-200 py-4"
+                                        {...register("gender")}
+                                        className=" bg-gray-200 px-1 py-4"
                                         type="radio"
-                                        name="gender"
                                     />{" "}
                                     Female
                                 </label>
-                                {/* <label className=" font-sans">
-                  <input className=" bg-gray-200 py-4" type="radio" name="gender" /> Other
-                </label> */}
+                                {errors.number && (
+                                    <p className="text-sm text-red-600">
+                                        {errors.number.message}
+                                    </p>
+                                )}
                             </div>
                             <label className="text-xl font-semibold">
                                 Highest Academic Qualification{" "}
                                 <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                {...register("schoolQualification")}
+                                className=" bg-gray-200 px-1 py-4"
                                 type="text"
-                                name="schoolQualification"
                             />
+                            {errors.schoolQualification && (
+                                <p className="text-sm text-red-600">
+                                    {errors.schoolQualification.message}
+                                </p>
+                            )}
 
                             <p className="text-xl font-semibold">
-                                Program of Interest{" "}
-                                <span className="text-orange-500">*</span>
+                                Program of Interest <span className="text-orange-500">*</span>
                             </p>
                             <div className="mt-6 flex flex-col space-y-3 bg-gray-200 p-4 text-lg">
                                 <label className=" font-sans">
                                     <input
-                                        className=" bg-gray-200 py-4"
+                                        {...register("programOfInterest")}
+                                        className=" bg-gray-200 px-1 py-4"
                                         type="radio"
-                                        name="programOfInterest"
                                         value="Web Development"
                                     />{" "}
                                     Full Stack Web Development
                                 </label>
+                                {errors.programOfInterest && (
+                                    <p className="text-sm text-red-600">
+                                        {errors.programOfInterest.message}
+                                    </p>
+                                )}
+
                                 <label className=" font-sans">
                                     <input
-                                        className=" bg-gray-200 py-4"
+                                        {...register("programOfInterest")}
+                                        className=" bg-gray-200 px-1 py-4"
                                         type="radio"
                                         name="programOfInterest"
-                                        value="Data Science"
                                     />{" "}
                                     UI/UX Design
                                 </label>
+                                {errors.programOfInterest && (
+                                    <p className="text-sm text-red-600">
+                                        {errors.programOfInterest.message}
+                                    </p>
+                                )}
+
                                 <label className=" font-sans">
                                     <input
-                                        className=" bg-gray-200 py-4"
+                                        {...register("programOfInterest")}
+                                        className=" bg-gray-200 px-1 py-4"
                                         type="radio"
-                                        name="programOfInterest"
                                         value="UI/UX Design"
                                     />{" "}
                                     Other
                                 </label>
+                                {errors.programOfInterest && (
+                                    <p className="text-sm text-red-600">
+                                        {errors.programOfInterest.message}
+                                    </p>
+                                )}
                             </div>
                         </div>
 
-                        
                         <div className="flex w-[45%] flex-col space-y-5 mobile:max-md:w-[100%] mobile:max-md:pt-10">
                             <label className="text-xl font-semibold">
                                 Email <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                {...register("email")}
+                                className=" bg-gray-200 py-4 pl-4"
                                 type="email"
-                                name="email"
                             />
+                            {errors.email && (
+                                <p className="text-sm text-red-600">{errors.email.message}</p>
+                            )}
 
                             <label className="text-xl font-semibold">
                                 Age <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
-                                type="number"
-                                name="age"
+                                {...register("age")}
+                                className=" bg-gray-200 py-4  pl-4"
+                            // type="number"
                             />
+                            {errors.age && (
+                                <p className="text-sm text-red-600">{errors.age.message}</p>
+                            )}
 
                             <label className="pt-14 text-xl font-semibold">
-                                Place of Residence{" "}
-                                <span className="text-orange-500">*</span>
+                                Place of Residence <span className="text-orange-500">*</span>
                             </label>
+
                             <input
-                                className=" bg-gray-200 py-4"
+                                {...register("residence")}
+                                className=" bg-gray-200 py-4  pl-4"
                                 type="text"
-                                name="residence"
                             />
+                            {errors.residence && (
+                                <p className="text-sm text-red-600">
+                                    {errors.residence.message}
+                                </p>
+                            )}
 
                             <label className="pt-4 text-xl font-semibold">
                                 If Other, specify
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                {...register("other")}
+                                className=" bg-gray-200 py-4  pl-4"
                                 type="text"
-                                name="other"
                             />
+                            {errors.other && (
+                                <p className="text-sm text-red-600">{errors.other.message}</p>
+                            )}
                         </div>
                     </div>
 
@@ -167,28 +248,41 @@ const ApplyNow: React.FC = () => {
                         <span className="text-orange-500">*</span>
                     </label>
                     <textarea
-                        name="intentionsBefore"
-                        className=" bg-gray-200 py-10"
+                        {...register("intentionsBefore")}
+                        className=" bg-gray-200 py-10 pl-4"
                     />
+                    {errors.intentionsBefore && (
+                        <p className="text-sm text-red-600">
+                            {errors.intentionsBefore.message}
+                        </p>
+                    )}
 
                     <label className="pt-4 text-xl font-semibold">
-                        What do you intend to do after your time at Rebase Code
-                        Camp?
+                        What do you intend to do after your time at Rebase Code Camp?
                     </label>
                     <textarea
-                        name="intentionsAfter"
-                        className=" bg-gray-200 py-10"
+                        {...register("intentionsAfter")}
+                        className=" bg-gray-200 py-10 pl-4"
                     />
+                    {errors.intentionsAfter && (
+                        <p className="text-sm text-red-600">
+                            {errors.intentionsAfter.message}
+                        </p>
+                    )}
 
                     <label className="pt-4 text-xl font-semibold">
-                        Full Name of Guardian{" "}
-                        <span className="text-orange-500">*</span>
+                        Full Name of Guardian <span className="text-orange-500">*</span>
                     </label>
                     <input
-                        className=" bg-gray-200 py-4"
+                        {...register("guardianName")}
+                        className=" bg-gray-200 py-4  pl-4"
                         type="text"
-                        name="guardianName"
                     />
+                    {errors.guardianName && (
+                        <p className="text-sm text-red-600">
+                            {errors.guardianName.message}
+                        </p>
+                    )}
 
                     {/* all div  */}
                     <div className="flex justify-between py-8">
@@ -201,28 +295,46 @@ const ApplyNow: React.FC = () => {
                             <div className="mt-6 flex flex-col space-y-3 bg-gray-200 p-4 text-lg">
                                 <label className=" font-sans">
                                     <input
-                                        className=" bg-gray-200 py-4"
+                                        {...register("gender")}
+                                        className=" bg-gray-200 py-4  pl-4"
                                         type="radio"
-                                        name="gender"
                                     />{" "}
                                     Mother
                                 </label>
+                                {errors.gender && (
+                                    <p className="text-sm text-red-600">
+                                        {errors.gender.message}
+                                    </p>
+                                )}
                                 <label className=" font-sans">
                                     <input
-                                        className=" bg-gray-200 py-4"
+                                        {...register("gender")}
+                                        className=" bg-gray-200 py-4  pl-4"
                                         type="radio"
-                                        name="gender"
                                     />{" "}
                                     Father
                                 </label>
+                                {errors.gender && (
+                                    <p className="text-sm text-red-600">
+                                        {errors.gender.message}
+                                    </p>
+                                )}
+
                                 <label className=" font-sans">
                                     <input
-                                        className=" bg-gray-200 py-4"
+                                        {...register("gender")}
+                                        className=" bg-gray-200 py-4  pl-4"
                                         type="radio"
-                                        name="gender"
                                     />{" "}
                                     Other
                                 </label>
+                                <input {...register("_type")} type="hidden" />
+
+                                {errors.gender && (
+                                    <p className="text-sm text-red-600">
+                                        {errors.gender.message}
+                                    </p>
+                                )}
                             </div>
 
                             <label className="text-xl font-semibold">
@@ -230,48 +342,59 @@ const ApplyNow: React.FC = () => {
                                 <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                {...register("guardianNumber")}
+                                className=" bg-gray-200 py-4  pl-4"
                                 type="tel"
-                                name="guardianNumber"
                             />
+                            {errors.guardianNumber && (
+                                <p className="text-sm text-red-600">
+                                    {errors.guardianNumber.message}
+                                </p>
+                            )}
                         </div>
                         {/* div 4  */}
                         <div className="flex w-[45%] flex-col space-y-5">
                             <label className="text-xl font-semibold">
-                                If Other, specify{" "}
-                                <span className="text-orange-500">*</span>
+                                If Other, specify <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                {...register("otherForguardian")}
+                                className=" bg-gray-200 py-4  pl-4"
                                 type="text"
-                                name="other"
                             />
+                            {errors.otherForguardian && (
+                                <p className="text-sm text-red-600">
+                                    {errors.otherForguardian.message}
+                                </p>
+                            )}
 
                             <label className="pt-20 text-xl font-semibold">
-                                Email of Guardian{" "}
-                                <span className="text-orange-500">*</span>
+                                Email of Guardian <span className="text-orange-500">*</span>
                             </label>
                             <input
-                                className=" bg-gray-200 py-4"
+                                {...register("guardianEmail")}
+                                className=" bg-gray-200 py-4 pl-4"
                                 type="email"
-                                name="guardianEmail"
                             />
+                            {errors.guardianEmail && (
+                                <p className="text-sm text-red-600">
+                                    {errors.guardianEmail.message}
+                                </p>
+                            )}
                         </div>
                     </div>
-
-                    <Link
-                        href="/"
-                        className="items-center justify-center  text-center"
-                    >
-                        <Button
-                            className="bg-purple font-mono text-white"
+                    <div className="items-center justify-center  pt-5 text-center">
+                        <button
+                            className=" p-2 px-4 text-white"
+                            style={{ background: "#6220ec" }}
                             type="submit"
                         >
                             Submit
-                        </Button>
-                    </Link>
+                        </button>
+                    </div>
                 </form>
             </div>
+            <Notification />
         </div>
     );
 };

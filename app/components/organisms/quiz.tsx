@@ -6,7 +6,7 @@ function QuizPicture() {
     return (
         <div>
             <div className=" h- flex h-[650px] w-full flex-col pb-10 pl-20 pr-20 pt-8 mobile:max-md:mr-[-9rem] mobile:max-md:hidden mobile:max-md:pl-5 mobile:max-md:pr-5">
-                <div className=" mobile:max-md:w-[100%] ">
+                <div className=" mobile:max-md:w-[100%] bg-white">
                     <Image
                         src={quizPic}
                         className=" h-[550px] w-[100%] object-cover"
