@@ -12,7 +12,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className=" fixed left-0 right-0 top-0 z-10 bg-white shadow-lg ">
+        <nav className=" fixed left-0 right-0 top-0 z-10 bg-white shadow-lg px-16">
             <div className="mx-auto max-w-7xl py-4 md:flex md:items-center md:justify-between">
                 <>
                     <div className="flex max-w-full items-center justify-between py-3 md:block md:py-5 lg:block">

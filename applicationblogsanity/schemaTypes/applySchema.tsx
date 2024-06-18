@@ -14,6 +14,11 @@ export const applySchema = {
       title: 'Number',
     },
     {
+      name: 'status',
+      type: 'string',
+      title: 'Status',
+    },
+    {
       name: 'gender',
       type: 'string',
       title: 'Gender',

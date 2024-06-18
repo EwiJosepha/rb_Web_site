@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import contactImg from "@/public/assets/images/contact_us_rebase_photo_720.png";
+import contactImg from "../../../public/assets/images/contact_us_rebase_photo_720.png";
 import { playfair } from "@/public/fonts";
 import { getMessage } from "@/app/servers/getcontact-message";
 import Notification from "../../lib/toast";;
@@ -21,7 +21,10 @@ async function handleSubmit(formData: FormData) {
     failed()
   }
    await getMessage(name, email, text);
-  notify();  
+  notify();
+  formData.set("name", "")  
+  formData.set("email", "")  
+  formData.set("text", "")  
 }
 
 function ContactUs() {
