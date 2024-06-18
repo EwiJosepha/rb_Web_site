@@ -55,7 +55,7 @@ const ApplyNow: React.FC = () => {
             <div className="absolute inset-0 top-64 px-6 text-white lg:mx-20">
                 <h1 className={` w-3/5 font-mono text-6xl mobile:max-md:text-3xl`}>Apply Now</h1>
                 <h2 className="mt-10 w-1/2 text-2xl font-sans mobile:max-md:w-[100%]">
-                    Join us for an opportunity
+                    Join us for an opportunity Now
                 </h2>
             </div>
 

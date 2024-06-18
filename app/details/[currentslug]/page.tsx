@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { FaShare, FaThumbsUp } from "react-icons/fa";
-// import { playfair } from "@/public/fonts";
 import {
   client,
   imageConvertion,
