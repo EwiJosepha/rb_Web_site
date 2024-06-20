@@ -33,7 +33,7 @@ const HeroSection: React.FC = () => {
         </h2>
       </div>
 
-      <div className=" flex space-x-8 text-white mobile:max-md:mr-[-11rem]  mobile:max-md:px-5 xl:mt-20">
+      <div className=" flex space-x-8 text-white mobile:max-md:mr-[-11rem]  mobile:max-md:px-5 ">
         <Link href="/apply-now">
           <button className="bg-orange-500 p-4 font-bold hover:cursor-pointer">
             Apply Now

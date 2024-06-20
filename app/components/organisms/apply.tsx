@@ -6,8 +6,6 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { ApplySchemaTypes } from "@/app/lib/interfaces";
 import { toast } from "react-toastify"
-// import { playfair } from "@/public/fonts";
-// import Button from "./Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { appllicationInfoSchema } from "@/app/validations/apply-info";
 import { createRegistration } from "@/app/servers/applyformData";
