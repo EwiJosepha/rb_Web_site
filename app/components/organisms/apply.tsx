@@ -2,7 +2,6 @@
 import Image from "next/image";
 import apply from "../../../public/assets/images/applynow-1653368202-170667a.webp";
 import React from "react";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { ApplySchemaTypes } from "@/app/lib/interfaces";
 import { toast } from "react-toastify"
@@ -41,7 +40,7 @@ const ApplyNow: React.FC = () => {
 
 
     return (
-        <div className="relative h-screen mx-20 bg-white">
+        <div className="relative h-screen my-14 bg-white">
             <div className="h-4/6  w-full">
                 <Image
                     src={apply}
@@ -57,7 +56,7 @@ const ApplyNow: React.FC = () => {
                 </h2>
             </div>
 
-            <div className=" bg-white">
+            <div className=" bg-white mx-20">
                 <form
                     {...form}
                     onSubmit={form.handleSubmit(onSubmit)}
