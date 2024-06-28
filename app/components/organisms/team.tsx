@@ -1,10 +1,18 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import Image from "next/image";
 import popImage from "@/public/assets/images/photo_placement_720.png";
 import { GrNext, GrPrevious } from "react-icons/gr";
-// import { playfair } from "@/public/fonts";
 
 function Team() {
+    const [currentTeam, setCurrentTeam ]= useState(0)
+    const handlePrev = () =>{
+        setCurrentTeam((prevTeam)=> prevTeam === 0? teamProfile.length - 0: prevTeam - 1)
+    }
+    const handleNext = () => {
+        setCurrentTeam((nextTeam)=> teamProfile.length - 1? 0 : nextTeam + 1)
+    }
+     
     const teamProfile = [
         {
             name: "Mr Ngoran Aristide",
@@ -35,7 +43,7 @@ function Team() {
                 <div className="flex items-center  justify-around mobile:max-md:overflow-hidden">
                     <div className=" mobile:max-md:ml-[-50px]">
                         <button className=" left-7 flex -translate-y-1/2 transform items-center justify-center rounded-full bg-orange-500 px-5 py-5 font-bold mobile:max-md:px-1 mobile:max-md:py-1">
-                            <GrPrevious className="text-2xl text-white" />
+                            <GrPrevious className="text-2xl text-white" onClick={handlePrev}/>
                         </button>
                     </div>
 
@@ -67,7 +75,7 @@ function Team() {
 
                     <div className=" mobile:max-md:ml-[50px]">
                         <button className=" left-7 -translate-y-1/2 transform rounded-full bg-orange-500 px-5 py-5 font-bold mobile:max-md:px-1 mobile:max-md:py-1 ">
-                            <GrNext className="text-2xl text-white" />
+                            <GrNext className="text-2xl text-white"  onClick={handleNext}/>
                         </button>
                     </div>
                 </div>

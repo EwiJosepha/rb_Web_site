@@ -1,10 +1,11 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import bata from "@/public/assets/images/WhatsApp Image 2024-05-20 at 14.21.59_53835e41.jpg";
 import dorine from "@/public/assets/images/WhatsApp Image 2024-05-20 at 14.22.00_517e2a3d.jpg";
 import josepha from "@/public/assets/images/WhatsApp Image 2024-05-20 at 14.22.00_cc5dca0e.jpg";
 import Image from "next/image";
 
-const FeaturedStudent: React.FC = () => {
+const FeaturedStudent: React.FC = () => {    
     const potentialStudents = [
         {
             id: 1,
@@ -42,7 +43,7 @@ const FeaturedStudent: React.FC = () => {
             <div className="flex items-center justify-center gap-10">
                 {potentialStudents.slice(0, 3).map((student, key) => (
                     <div
-                        className=" w-[50%] bg-orange-50 p-4 text-center mobile:max-md:w-[80%] md:h-[480px] xl:h-[480px]  lg:h-[550px]"
+                        className=" w-[50%] bg-orange-50 p-4 text-center mobile:max-md:w-[80%] md:h-[510px] xl:h-[510px]  lg:h-[550px]"
                         key={key}
                     >
                         <div className="mobile:max-md:h-[10%] mobile:max-md:w-[80%] mobile:max-md:pl-8">

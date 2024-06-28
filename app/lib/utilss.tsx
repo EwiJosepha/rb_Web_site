@@ -1,5 +1,5 @@
- import { simpleblogcardsanity } from "@/rebaseblogapply/utils/interfaces";
- import { client } from "@/rebaseblogapply/schemaTypes/sanityy-client";
+ import { simpleblogcardsanity } from "../lib/interfaces";
+ import { client } from "../lib/sanity-clientt";
 
  export const getdata = async () => {
   try {

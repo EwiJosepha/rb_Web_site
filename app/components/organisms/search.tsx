@@ -40,7 +40,10 @@ function SearchCourse() {
     const fetchData = async () => {
       try {
         const retrievedData = await getdata();
+        console.log("data", retrievedData);
+
         setData(retrievedData);
+
         if (!query.trim()) {
           setData(retrievedData);
         } else {
@@ -53,6 +56,8 @@ function SearchCourse() {
         setLoading(false);
       }
     };
+
+    
 
     const intId = setTimeout(fetchData, 2000);
 
