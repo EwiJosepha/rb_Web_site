@@ -1,79 +1,72 @@
-"use client"
+"use client";
+import React from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import React, { useState } from "react";
-import dp from "@/public/assets/images/photo_placement_720.png";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { FaStar } from "react-icons/fa6";
 import { playfair } from "@/public/fonts";
+import { getStudentTestimony } from "@/app/lib/getTestimonial";
+import { simpleStudentTestimonyblogCard } from "@/app/lib/interfaces";
+import { imageConvertion } from "@/app/lib/sanity-clientt";
 
-const Testimonials: React.FC = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const testifier = [
-    {
-      id: 1,
-      image: dp,
-      title: "How to manage SEO as a client",
-      date: "June 24th, 2024",
-      owner: "Nora k.",
-      text: "Rebase Academy has truly transformed my career. The hands-on learning experience and industry-relevant curriculum prepared me for success in the tech job market",
-    },
-    {
-      id: 2,
-      image: dp,
-      title: "How to manage SEO as a client",
-      date: "June 24th, 2024",
-      owner: "Orashus l.",
-      text: "Rebase Academy has truly transformed my career. The hands-on learning experience and industry-relevant curriculum prepared me for success in the tech job markett",
-    },
-    {
-      id: 3,
-      image: dp,
-      title: "How to manage SEO as a client",
-      date: "June 24th, 2024",
-      owner: "Gmarvis N.",
-      text: "Rebase Academy has truly transformed my career. The hands-on learning experience and industry-relevant curriculum prepared me for success in the tech job markett",
-    },
-  ];
+function Testimonials() {
+  const [retrievedData, setRetrievedData] = useState<
+    simpleStudentTestimonyblogCard[]
+  >([]);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testifier.length - 1 : prevIndex - 1
+    setCurrentIndex(prevIndex =>
+      prevIndex === 0 ? retrievedData?.length - 1 : prevIndex - 1,
     );
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testifier.length - 1 ? 0 : prevIndex + 1
+    setCurrentIndex(prevIndex =>
+      prevIndex === retrievedData?.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
   const currentTestimonials = [
-    testifier[currentIndex],
-    testifier[(currentIndex + 1) % testifier.length],
+    retrievedData[currentIndex],
+    retrievedData[(currentIndex + 1) % retrievedData.length],
   ];
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getStudentTestimony();
+      setRetrievedData(data);
+    };
+    fetchData();
+  }, []);
+
+  console.log("retrieved testimonial", retrievedData);
+  
 
   return (
-    <div className="mb-14 mobile:max-md:mx-5 mobile:max-md:mr-[-9rem] lg:mx-20">
+    <div className="flex  flex-col gap-6 px-3 md:mb-14 md:px-0 md:py-10 lg:mx-36">
       <h1
-        className={`${playfair.className} mb-6 text-center text-6xl mobile:max-md:text-3xl`}
+        className={`${playfair.className} text-center text-6xl mobile:max-md:text-3xl`}
       >
         Testimonials
       </h1>
-      <h3 className="mb-10 text-center font-sans text-xl">
+      <h3 className="mobile:max-md:text-1xl  text-center font-sans text-sm text-gray-500 md:text-2xl">
         Hear what our students, former students and industry professionals have
         to say
       </h3>
       <div className="flex items-center justify-around">
-        <button className=" left-7 -translate-y-1/2 transform rounded-full bg-orange-500 px-5 py-5 font-bold mobile:max-md:px-2 mobile:max-md:py-2" onClick={handlePrev}>
+        <button
+          className=" left-7 -translate-y-1/2 transform rounded-full bg-orange-500 px-5 py-5 font-bold mobile:max-md:px-2 mobile:max-md:py-2"
+          onClick={handlePrev}
+        >
           <GrPrevious className=" previousbtn text-2xl text-white" />
         </button>
 
-        <div className="grid w-[75%] grid-cols-2 gap-10 overflow-hidden lg:h-[600px]">
+        <div className="lg:h-100% grid w-[75%] grid-cols-2 gap-10 overflow-hidden mobile:max-md:grid-cols-1">
           {currentTestimonials.map((testimony, index) => (
             <div
-              className="card bg-gray-200 p-10 lg:h-[580px] xl:h-[500px]"
+              className="card h-[310px] bg-gray-200 p-10 md:h-[300px] lg:h-[550px] xl:h-[100%]"
               key={index}
-              style={{}}
             >
               <div className="mb-4 flex">
                 <FaStar className="text-xl" />
@@ -83,25 +76,32 @@ const Testimonials: React.FC = () => {
                 <FaStar className="text-xl" />
               </div>
 
-              <h2 className="font-sans text-lg font-bold mobile:max-md:hidden xl:text-2xl">
-                {testimony.text}
-              </h2>
+              <div className="h-80 mobile:max-md:h-[98%]">
+                <h2 className="mobile:max-md:font-xs font-sans text-xs  font-bold xl:text-2xl">
+                  {testimony?.testimony.slice(0, 300)}
+                </h2>
+              </div>
               <div className="my-8 h-24 w-20">
                 <Image
-                  src={dp}
+                  src={imageConvertion(testimony?.studImage)?.url() || ""}
+                  width={100}
+                  height={100}
                   alt="dp"
-                  className="h-full w-full rounded-t-full border border-gray-200 object-cover"
+                  className="h-full w-full rounded-t-full border border-gray-200 object-cover mobile:max-md:invisible"
                 />
               </div>
-              <h2 className="text-lg font-semibold">{testimony.owner}</h2>
-              <p className=" mobile:max-md:hidden">
-                Software Engineer, xyz company.
-              </p>
+              <h2 className="visible text-lg font-semibold">
+                {testimony?.name}
+              </h2>
+              <p className=" visible text-xs">{testimony?.description}</p>
             </div>
           ))}
         </div>
 
-        <button className=" left-7 -translate-y-1/2 transform rounded-full bg-orange-500 px-5 py-5 font-bold mobile:max-md:px-2 mobile:max-md:py-2" onClick={handleNext}>
+        <button
+          className=" left-7 -translate-y-1/2 transform rounded-full bg-orange-500 px-5 py-5 font-bold mobile:max-md:px-2 mobile:max-md:py-2"
+          onClick={handleNext}
+        >
           <GrNext
             className="next-button
                     text-2xl text-white"
@@ -110,5 +110,5 @@ const Testimonials: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 export default Testimonials;

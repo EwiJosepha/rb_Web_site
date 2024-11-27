@@ -18,6 +18,25 @@ export interface simplecardsanity {
   createdAt: Date;
 }
 
+export interface simpleStudentTestimonyblogCard {
+  name: string;
+  description: string;
+  studImage: string;
+  testimony: string;
+}
+
+export interface simpleFeatureStudentblogCard {
+  name: string;
+  descriptions: string;
+  studImage: string;
+}
+export interface simpleTeamsBlogCard {
+  name: string;
+  description: string;
+  teamsImage: string;
+  position: string;
+}
+
 export interface oneBlogCardsanity {
   title: string;
   description: string;
@@ -29,13 +48,14 @@ export interface oneBlogCardsanity {
       _ref: string;
     };
   };
-  content: string;
+  content: string[];
   author: string;
   createdAt: Date;
 }
 
 export interface ApplySchemaTypes {
   _type: string;
+  status: string;
   fullName: string;
   number: string;
   gender: string;

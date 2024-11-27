@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# D&G Collection
 
-## Getting Started
+This is a web site for a school where you can apply get in touch or may be contact the school for more information about the school.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1 Application Page
+2 Contact-Us
+3 FAQS Page
+4 Programs Page
+5 Blog Page
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Front-end: Next.js, Tailwind
+Back-end: CMS-SANITY
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Screen Shots
 
-## Learn More
+Here are some screenshots of the project
 
-To learn more about Next.js, take a look at the following resources:
+## About Page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![About Page!](./public//screenshots-readme//aboutus.PNG)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Application Form
 
-## Deploy on Vercel
+![Luxury Segment!](./public//screenshots-readme//apply.PNG)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Programs
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Programs!](public/screenshots-readme//programms.PNG)
+
+## contact Us
+
+![contact Us!](public//screenshots-readme//contact-us.PNG)
+
+## Blogs
+
+![Blogs page!](public//screenshots-readme//blogcards.PNG)
+
+### START APP
+
+- To start application, run
+
+  ```bash
+      $ npm run dev # to start development server
+  ```
+
+- [live deployment](https://rebase-cc-frontend-git-feat-sa-780849-ngoran-aristides-projects.vercel.app/)
