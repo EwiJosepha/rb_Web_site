@@ -9,6 +9,9 @@ import { getAllData } from "../../lib/getblogs";
 
 
 async function Blog() {
+
+    //debugging
+    
     const retrievedData = await getAllData();
     return (
         <div>
