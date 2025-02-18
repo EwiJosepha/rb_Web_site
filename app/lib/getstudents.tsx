@@ -12,9 +12,7 @@ export const getFeatureStudent = async () => {
         `);
 
     return data as simpleFeatureStudentblogCard[];
-  } catch (error) {
-    console.log({error});
-    
+  } catch (error) {    
     return [];
   }
 };

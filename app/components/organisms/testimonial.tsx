@@ -65,7 +65,7 @@ function Testimonials() {
         <div className="lg:h-100% grid w-[75%] grid-cols-2 gap-10 overflow-hidden mobile:max-md:grid-cols-1">
           {currentTestimonials.map((testimony, index) => (
             <div
-              className="card h-[310px] bg-gray-200 p-10 md:h-[300px] lg:h-[550px] xl:h-[100%]"
+              className="bg-gray-200 p-10 h-auto"
               key={index}
             >
               <div className="mb-4 flex">
@@ -76,7 +76,7 @@ function Testimonials() {
                 <FaStar className="text-xl" />
               </div>
 
-              <div className="h-80 mobile:max-md:h-[98%]">
+              <div className="">
                 <h2 className="mobile:max-md:font-xs font-sans text-xs  font-bold xl:text-2xl">
                   {testimony?.testimony.slice(0, 300)}
                 </h2>
@@ -87,13 +87,13 @@ function Testimonials() {
                   width={100}
                   height={100}
                   alt="dp"
-                  className="h-full w-full rounded-t-full border border-gray-200 object-cover mobile:max-md:invisible"
+                  className="h-full w-full rounded-t-full border border-gray-200 object-cover"
                 />
               </div>
-              <h2 className="visible text-lg font-semibold">
+              <h2 className=" text-lg font-semibold">
                 {testimony?.name}
               </h2>
-              <p className=" visible text-xs">{testimony?.description}</p>
+              <p className="text-xs">{testimony?.description}</p>
             </div>
           ))}
         </div>
