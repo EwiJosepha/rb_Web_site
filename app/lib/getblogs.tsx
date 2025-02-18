@@ -1,5 +1,5 @@
-import { simpleblogcardsanity } from "../lib/interfaces";
-import { client } from "../lib/sanity-clientt"
+import { simpleblogcardsanity } from "./interfaces";
+import { client } from "../lib/sanity-clientt";
 
 export const getAllData = async () => {
   try {

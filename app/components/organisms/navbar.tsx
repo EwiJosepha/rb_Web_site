@@ -1,82 +1,89 @@
 "use client";
-
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Button from "../molecules/button";
-// import rebaselogo from "@/public/assets/Rebase logo.svg"
 import rebaseLogo from "@/public/svgs/Rebase logo (1).svg";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
+const routes = [
+  {
+    href: "/about-us",
+    label: "About Us",
+  },
+  {
+    href: "/programs",
+    label: "Programs",
+  },
+  {
+    href: "/blog",
+    label: "Blog",
+  },
+  {
+    href: "/contact-us",
+    label: "Contact Us",
+  },
+];
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-    return (
-        <nav className=" fixed left-0 right-0 top-0 z-10 bg-white shadow-lg px-16">
-            <div className="mx-auto max-w-7xl py-4 md:flex md:items-center md:justify-between">
-                <>
-                    <div className="flex max-w-full items-center justify-between py-3 md:block md:py-5 lg:block">
-                        <Link href="/" className="h-8 w-40 ">
-                            <div className="xl:w-50 h-8 w-40 xl:h-16">
-                                <Image
-                                    src={rebaseLogo}
-                                    alt="sectionimage"
-                                    className="h-full w-full object-cover"
-                                />
-                            </div>
-                        </Link>
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
 
-                        <div className="block md:hidden lg:hidden">
-                            <button
-                                onClick={() => setIsOpen(!isOpen)}
-                                className="text-black-500 hover:text-black-400 flex items-center rounded px-3 py-2"
-                            >
-                                {isOpen ? <FaTimes /> : <FaBars />}
-                            </button>
-                        </div>
-                    </div>
-                </>
-                <div
-                    className={`block w-full md:flex md:w-auto md:items-center  lg:flex lg:w-auto lg:items-center ${isOpen ? "block" : "hidden"} top-32 z-10  bg-white`}
-                >
-                    <div className="mobile:max-md: flex-none space-x-10 space-y-6 text-center text-base md:flex md:space-y-0 lg:flex-row lg:space-y-0 xl:text-lg">
-                        <Link
-                            href="/about"
-                            className="text-white-200 mr-4 block mobile:max-md:ml-10 lg:mt-0 lg:inline-block"
-                        >
-                            About Us
-                        </Link>
-                        <Link
-                            href="/programs"
-                            className="text-white-200 mr-4 mt-4 block lg:mt-0 lg:inline-block"
-                        >
-                            Programs
-                        </Link>
-                        <Link
-                            href="/blog"
-                            className="text-white-200 mr-4 mt-4 block lg:mt-0 lg:inline-block"
-                        >
-                            Blog
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="text-white-200 mr-4 mt-4 block lg:mt-0 lg:inline-block"
-                        >
-                            Contact Us
-                        </Link>
-                    </div>
-                    <div className=" ml-5 mobile:max-md:ml-10 mobile:max-md:p-4 mobile:max-md:text-center">
-                        <Link href="/apply">
-                            <Button
-                                className="border-4 border-purple bg-transparent text-sm text-purple"
-                                type="button"
-                            >
-                                Apply Now
-                            </Button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    );
+  return (
+    <header className="fixed top-0 z-10 flex w-full justify-between border-b bg-white px-3  py-6  shadow-lg md:px-20">
+      <Link href="/" className=" h-8 w-40 lg:ml-0 xl:h-16 xl:w-60">
+        <Image
+          src={rebaseLogo}
+          alt="sectionimage"
+          className="h-full w-full object-cover"
+        />
+      </Link>
+
+      <nav
+        className={`fixed top-0 -mx-3  flex min-w-full flex-col items-center gap-10 bg-white p-5 duration-300  md:static md:min-w-[unset] md:flex-row md:p-0 ${isOpen ? "top-4" : "top-[-100%]"}`}
+      >
+        {routes.map(route => (
+          <Link
+            key={route.href}
+            href={route.href}
+            className={`text-lg font-medium transition-colors ${pathname === route.href ? "border-b-4 border-orange-500 text-orange-500" : ""}`}
+            onClick={handleLinkClick}
+          >
+            {route.label}
+          </Link>
+        ))}
+        <Link
+          href={"/apply-now"}
+          className="w-full translate-x-0 bg-orange-500 px-10  py-4 text-center   font-bold  text-white transition-transform duration-500 hover:translate-x-2 hover:cursor-pointer mobile:max-md:px-2 mobile:max-md:py-1 md:hidden"
+          onClick={handleLinkClick}
+        >
+          Apply Now
+        </Link>
+        <FaTimes
+          className="absolute right-0 top-0 z-20 m-4 cursor-pointer md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      </nav>
+
+      <div>
+        <Button
+          className="hidden translate-x-0 bg-orange-500 px-10 py-4 font-bold   text-white  transition-transform duration-500 hover:translate-x-2 hover:cursor-pointer mobile:max-md:px-2 mobile:max-md:py-1 md:block"
+          type="button"
+        >
+          Apply Now
+        </Button>
+
+        <FaBars
+          className="cursor-pointer md:hidden"
+          onClick={() =>
+            setIsOpen(prev => (pathname !== routes[0].href ? !prev : prev))
+          }
+        />
+      </div>
+    </header>
+  );
 }
