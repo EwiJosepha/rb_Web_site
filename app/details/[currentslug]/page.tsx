@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { FaShare, FaThumbsUp } from "react-icons/fa";
-// import { playfair } from "@/public/fonts";
 import {
   client,
   imageConvertion,
@@ -12,11 +11,6 @@ import {
 } from "../../lib/interfaces";
 import { getAllData } from "../../lib/getblogs";
 import Link from "next/link";
-
-interface Params {
-  params: { [k: string]: string };
-  currentslug: string;
-}
 
 const getOneData = async (slug: string) => {
   try {
@@ -44,8 +38,8 @@ const getOneData = async (slug: string) => {
   }
 };
 
-async function BlogDetails(params: Params) {
-  const currentslug = params?.params?.currentslug;
+async function BlogDetails({ params }: { params: { currentslug: string } }) {
+  const currentslug = params?.currentslug;
   const data: oneBlogCardsanity = await getOneData(currentslug);
   const alldata = await getAllData();
   const convertedImage = imageConvertion(data.titleImage.asset._ref);

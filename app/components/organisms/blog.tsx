@@ -12,7 +12,7 @@ async function Blog() {
     const retrievedData = await getAllData();
     return (
         <div>
-            <div className=" space-y-3 py-10 mobile:max-md:pl-20 ">
+            <div className=" space-y-3 py-20 mobile:max-md:pl-20 ">
                 <h1
                     className={` }  text-center  text-6xl  mobile:max-md:text-3xl sm:max-md:text-4xl`}
                 >
